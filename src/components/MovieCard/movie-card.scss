@@ -1,0 +1,62 @@
+@use '../../scss/' as *;
+
+// .movieCard {
+// 	position: relative;
+// 	background-position: top;
+// 	background-repeat: no-repeat;
+// 	background-size: cover;
+// 	margin-bottom: 1rem;
+
+// 	width: 15rem;
+// 	margin-bottom: 2rem;
+// 	border: 1px solid white;
+// 	border-radius: $border-radius;
+// 	padding-top: 2rem;
+
+// 	img {
+// 		width: 15rem;
+// 	}
+// }
+
+.movieCard {
+	border: 1px solid #f8f8f8;
+	padding: 2rem 0;
+	margin-bottom: 2rem;
+	width: 20rem;
+	border-radius: 40px;
+	transition: transform 0.2s ease-in-out;
+	align-items: center;
+
+	img {
+		width: 20rem;
+	}
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+
+	.info {
+		display: flex;
+		flex-wrap: nowrap;
+
+		.movieRate {
+			font-size: 3rem;
+			font-weight: 700;
+			margin: auto 0;
+		}
+
+		.release {
+			flex-direction: column;
+			margin: auto 1.5rem;
+
+			.title {
+				font-weight: 400;
+				font-size: 18px;
+			}
+
+			.releaseDate {
+				font-size: 14px;
+			}
+		}
+	}
+}
