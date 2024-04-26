@@ -29,6 +29,7 @@
 
 	img {
 		width: 20rem;
+		height: 30rem;
 	}
 
 	&:hover {
@@ -38,6 +39,7 @@
 	.info {
 		display: flex;
 		flex-wrap: nowrap;
+		padding-left: 10px;
 
 		.movieRate {
 			font-size: 3rem;
