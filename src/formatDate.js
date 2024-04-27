@@ -1,4 +1,4 @@
-const FormatDate = dateString => {
+const formatDate = dateString => {
 	const date = new Date(dateString)
 	const day = date.getDate()
 	const monthIndex = date.getMonth()
@@ -21,4 +21,4 @@ const FormatDate = dateString => {
 	return `${day} ${months[monthIndex]} ${year}`
 }
 
-export default FormatDate
+export default formatDate

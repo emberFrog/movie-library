@@ -1,5 +1,5 @@
 import React from 'react'
-import FormatDate from '../FormatDate'
+import formatDate from '../../formatDate'
 
 import './movie-card.scss'
 
@@ -13,7 +13,7 @@ const MovieCard = props => {
 				<p className='movieRate'>{props.vote_average.toFixed(1)}</p>
 				<section className='release'>
 					<p className='title'>{props.title}</p>
-					<p className='releaseDate'>{FormatDate(props.release_date)}</p>
+					<p className='releaseDate'>{formatDate(props.release_date)}</p>
 				</section>
 			</section>
 		</article>

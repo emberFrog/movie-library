@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './App.scss'
-// import ApiRequester from './components/ApiRequester'
-import MovieCard from './components/MovieCard/MovieCard'
+
+import MovieCard from './components/movie-card/MovieCard'
+import Detail from './components/detail/Detail'
 
 function App() {
 	const API_URL =
@@ -13,7 +14,6 @@ function App() {
 		fetch(API_URL)
 			.then(res => res.json())
 			.then(data => {
-				// console.log(data)
 				setMovies(data.results)
 			})
 	}, [])
@@ -23,6 +23,7 @@ function App() {
 	return (
 		<main>
 			<header>
+				<Detail />
 				<img></img>
 				<h1>Кино справочник</h1>
 			</header>
