@@ -3,17 +3,17 @@ import formatDate from '../../formatDate'
 
 import './movie-card.scss'
 
-const MovieCard = props => {
+const MovieCard = ({ movie, onClick }) => {
 	const API_IMG = 'https://image.tmdb.org/t/p/w500/'
 
 	return (
-		<article className='movieCard'>
-			<img src={API_IMG + props.poster_path} alt='Movie Poster' />
+		<article className='movieCard' onClick={onClick}>
+			<img src={API_IMG + movie.poster_path} alt='Movie Poster' />
 			<section className='info'>
-				<p className='movieRate'>{props.vote_average.toFixed(1)}</p>
+				<p className='movieRate'>{movie.vote_average.toFixed(1)}</p>
 				<section className='release'>
-					<p className='title'>{props.title}</p>
-					<p className='releaseDate'>{formatDate(props.release_date)}</p>
+					<p className='title'>{movie.title}</p>
+					<p className='releaseDate'>{formatDate(movie.release_date)}</p>
 				</section>
 			</section>
 		</article>
