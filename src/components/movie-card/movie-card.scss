@@ -2,7 +2,7 @@
 
 .movieCard {
 	padding: 2rem 0;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 	width: 20rem;
 	border-radius: 40px;
 	transition: transform 0.2s ease-in-out;
@@ -20,6 +20,7 @@
 	.info {
 		display: flex;
 		flex-wrap: nowrap;
+		padding-top: 10px;
 		padding-left: 10px;
 
 		.movieRate {

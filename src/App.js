@@ -3,7 +3,7 @@ import './App.scss'
 
 import MovieCard from './components/movie-card/MovieCard'
 import Detail from './components/detail/Detail'
-// import { LoadMore } from './components/button/LoadMore'
+import { LoadMore } from './components/button/LoadMore'
 
 function App() {
 	const API_URL =
@@ -11,15 +11,22 @@ function App() {
 
 	const [movies, setMovies] = useState([])
 	const [selectedMovie, setSelectedMovie] = useState(null)
-	// const [page, setPage] = useState(1)
+	const [page, setPage] = useState(1)
+	const [totalPages, setTotalPages] = useState(null)
 
 	useEffect(() => {
-		fetch(API_URL)
+		fetch(API_URL + `&page=${page}`)
 			.then(res => res.json())
 			.then(data => {
-				setMovies(data.results)
+				if (page === 1) {
+					setMovies(data.results)
+				} else {
+					setMovies(prevMovies => [...prevMovies, ...data.results])
+				}
+				setTotalPages(data.total_pages)
 			})
-	}, [])
+			.catch(error => console.error('Error fetching data:', error))
+	}, [page, API_URL])
 
 	const handleMovieClick = movie => {
 		setSelectedMovie(movie)
@@ -29,16 +36,17 @@ function App() {
 		setSelectedMovie(null)
 	}
 
-	// const handleLoadMore = () => {
-	// 	setPage(prevPage => prevPage + 1)
-	// }
+	const handleLoadMore = () => {
+		if (page < totalPages) {
+			setPage(prevPage => prevPage + 1)
+		}
+	}
 
-	console.log(movies)
+	console.log(movies) //delete later
 
 	return (
 		<main>
 			<header>
-				<img alt='logo' />
 				<h1>Кино справочник</h1>
 			</header>
 			<section className='allMovies'>
@@ -50,7 +58,7 @@ function App() {
 					/>
 				))}
 			</section>
-			{/* <LoadMore onClick={handleLoadMore} /> */}
+			{totalPages && page < totalPages && <LoadMore onClick={handleLoadMore} />}
 			{selectedMovie && (
 				<Detail movie={selectedMovie} onClose={handleCloseDetail} />
 			)}
